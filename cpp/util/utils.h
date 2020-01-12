@@ -2,6 +2,7 @@
 #define UTILS_H
 
 #include <algorithm>
+#include <cmath>
 #include <tbb/tbb.h>
 
 #if defined _WIN32
