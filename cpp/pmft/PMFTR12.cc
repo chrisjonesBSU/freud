@@ -77,16 +77,8 @@ void PMFTR12::accumulate(const locality::NeighborQuery* neighbor_query, float* o
                           float t1 = orientations[neighbor_bond.point_idx] - d_theta1;
                           float t2 = query_orientations[neighbor_bond.query_point_idx] - d_theta2;
                           // make sure that t1, t2 are bounded between 0 and 2PI
-                          t1 = fmod(t1, TWO_PI);
-                          if (t1 < 0)
-                          {
-                              t1 += TWO_PI;
-                          }
-                          t2 = fmod(t2, TWO_PI);
-                          if (t2 < 0)
-                          {
-                              t2 += TWO_PI;
-                          }
+                          t1 = modulusPositive(t1, TWO_PI);
+                          t2 = modulusPositive(t2, TWO_PI);
                           m_local_histograms(neighbor_bond.distance, t1, t2);
                       });
 }
