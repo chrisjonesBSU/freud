@@ -38,8 +38,8 @@ constexpr float TWO_PI = 2.0 * M_PI;
 class Box
 {
 public:
-    //! Construct a box of length 0.
-    Box() // Lest you think of removing this, it's needed by the DCDLoader. No touching.
+    //! Nullary constructor for Cython
+    Box()
     {
         m_2d = false; // Assign before calling setL!
         setL(0, 0, 0);
@@ -47,7 +47,7 @@ public:
         m_xy = m_xz = m_yz = 0;
     }
 
-    //! Construct a cubic box
+    //! Construct a square/cubic box
     Box(float L, bool _2d = false)
     {
         m_2d = _2d; // Assign before calling setL!
@@ -433,7 +433,6 @@ public:
     //! Set the periodic flags
     /*! \param periodic Flags to set
      *  \post Period flags are set to \a periodic
-     *  \note It is invalid to set 1 for a periodic dimension where lo != -hi. This error is not checked for.
      */
     void setPeriodic(vec3<bool> periodic)
     {
