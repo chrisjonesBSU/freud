@@ -115,7 +115,7 @@ void BondOrder::accumulate(const locality::NeighborQuery* neighbor_query, quat<f
                           // angle)
                           float theta = std::atan2(v.y, v.x); //-Pi..Pi
 
-                          theta = modulusPositive(theta, TWO_PI);
+                          theta = util::modulusPositive(theta, TWO_PI);
 
                           // NOTE that the below has replaced the commented out expression for phi.
                           float phi = std::acos(v.z / std::sqrt(dot(v, v))); // 0..Pi
