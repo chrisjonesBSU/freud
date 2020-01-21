@@ -67,7 +67,7 @@ void PMFTXYT::accumulate(const locality::NeighborQuery* neighbor_query, float* o
                           float d_theta = atan2(-delta.y, -delta.x);
                           float t = query_orientations[neighbor_bond.query_point_idx] - d_theta;
                           // make sure that t is bounded between 0 and 2PI
-                          t = util::modulusPositive(t, TWO_PI);
+                          t = util::modulusPositive(t, constants::TWO_PI);
                           m_local_histograms(rotVec.x, rotVec.y, t);
                       });
 }
